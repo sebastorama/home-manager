@@ -19,13 +19,16 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    vim
-    neovim
-    tmux
-    nodejs_22
-
-    wl-clipboard
+    bemenu
+    foot
+    fzf
     lsd
+    neovim
+    nodejs_22
+    tldr
+    tmux
+    vim
+    wl-clipboard
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -84,6 +87,7 @@
   #  /etc/profiles/per-user/sebastorama/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    BEMENU_BACKEND = "curses";
     EDITOR = "nvim";
     XDG_DATA_DIRS="/home/sebastorama/.nix-profile/share:$XDG_DATA_DIRS";
   };
@@ -150,6 +154,33 @@
       set -g status-style fg='#624C6F',bg='#222436'
       set -g window-status-current-style fg='#ff0000',bg='#222436'
     '';
+  };
+
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      workspaces-only-on-primary = false;
+    };
+
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "kitty super";
+      command = "kitty -e tmux new-session -As g";
+      binding = "<Super>Return";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "bemenu-run";
+      command = "foot -- sh -c \"bemenu-run\"";
+      binding = "<Super>D";
+    };
   };
 
   fonts.fontconfig.enable = true;
