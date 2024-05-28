@@ -61,8 +61,6 @@
       source = dotfiles/kitty.conf;
     };
 
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink /home/sebastorama/.config/nvim;
-
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
