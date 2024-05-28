@@ -58,9 +58,7 @@
       source = dotfiles/kitty.conf;
     };
 
-    ".config/nvim" = {
-      source = dotfiles/nvim;
-    };
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink /home/sebastorama/.config/nvim;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -119,7 +117,16 @@
    enable = true;
    userEmail = "sebastorama@gmail.com";
    userName = "Sebastião Giacheto Ferreira Júnior";
-   extraConfig.init.defaultBranch = "main";
+
+   extraConfig = {
+     init.defaultBranch = "main";
+     core.editor = "nvim";
+     merge.tool = "nvimdiff";
+     mergetool."nvimdiff".cmd = "nvim -d \"$LOCAL\" \"$MERGED\" \"$BASE\" \"$REMOTE\" -c \"wincmd w\" -c \"wincmd J\"";
+     diff.tool = "nvimdiff";
+     difftool."nvimdiff".cmd = "nvim -d \"$LOCAL\" \"$REMOTE\"";
+   };
+
    aliases = {
      st = "status";
      ci = "commit";
