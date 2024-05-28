@@ -18,11 +18,13 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.vim
-    pkgs.google-chrome
-    pkgs.nixgl.nixGLIntel
-    pkgs.neovim
+  home.packages = with pkgs; [
+    vim
+    neovim
+    tmux
+    nodejs_22
+
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -49,6 +51,10 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+    ".config/kitty/kitty.conf" = {
+      source = dotfiles/kitty.conf;
+    };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -80,25 +86,8 @@
 
   xdg = {
    enable = true;
-   
-   desktopEntries = {
-    chrome = {
-      name = "Google Chrome";
-      genericName = "Web Browser";
-      exec = "google-chrome-stable %U";
-      terminal = false;
-      categories = [ "Application" "Network" "WebBrowser" ];
-      mimeType = [ "text/html" "text/xml" ];
-    };
-   };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.wezterm = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-  };
 
   programs.zsh = {
     enable = true;
@@ -113,6 +102,10 @@
         "rust"
       ];
     };
+
+    shellAliases = {
+      ta = "tmux new-session -As";
+    };
   };
 
   programs.git = {
@@ -122,6 +115,7 @@
    extraConfig.init.defaultBranch = "main";
    aliases = {
      st = "status";
+     ci = "commit";
      co = "checkout";
      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%ae>%Creset' --abbrev-commit";
    };
@@ -129,6 +123,22 @@
      enable = true;
    };
   };
+
+  programs.tmux = {
+    enable = true;
+    baseIndex = 1;
+    disableConfirmationPrompt = true;
+    mouse = true;
+    newSession = true;
+    keyMode = "vi";
+    extraConfig = ''
+      set -g message-style bg='#222436'
+      set -g status-style fg='#624C6F',bg='#222436'
+      set -g window-status-current-style fg='#ff0000',bg='#222436'
+    '';
+  };
+
+  fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
 }
