@@ -24,6 +24,8 @@
     tmux
     nodejs_22
 
+    wl-clipboard
+    lsd
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -56,6 +58,10 @@
       source = dotfiles/kitty.conf;
     };
 
+    ".config/nvim" = {
+      source = dotfiles/nvim;
+    };
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -80,7 +86,7 @@
   #  /etc/profiles/per-user/sebastorama/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
     XDG_DATA_DIRS="/home/sebastorama/.nix-profile/share:$XDG_DATA_DIRS";
   };
 
@@ -105,6 +111,7 @@
 
     shellAliases = {
       ta = "tmux new-session -As";
+      ls = "lsd";
     };
   };
 
