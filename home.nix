@@ -20,11 +20,16 @@
   # environment.
   home.packages = with pkgs; [
     bemenu
+    cargo
     foot
     fzf
+    gcc
     lsd
     neovim
     nodejs_22
+    nil
+    postgresql
+    stdenv
     tldr
     tmux
     vim
@@ -61,12 +66,25 @@
       source = dotfiles/kitty.conf;
     };
 
+    ".local/hm-bins/duo" = {
+      source = hosts/duo;
+    };
+
+    ".npmrc" = {
+      source = dotfiles/npmrc;
+    };
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
+
+  home.sessionPath = [
+    "$HOME/.local/hm-bins/duo"
+    "$HOME/.npm-packages/bin"
+  ];
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -87,13 +105,13 @@
   home.sessionVariables = {
     BEMENU_BACKEND = "curses";
     EDITOR = "nvim";
+    LC_CTYPE = "en_US.UTF-8";
     XDG_DATA_DIRS="/home/sebastorama/.nix-profile/share:$XDG_DATA_DIRS";
   };
 
   xdg = {
    enable = true;
   };
-
 
   programs.zsh = {
     enable = true;
@@ -166,18 +184,12 @@
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "kitty super";
       command = "kitty -e tmux new-session -As g";
       binding = "<Super>Return";
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-      name = "bemenu-run";
-      command = "foot -- sh -c \"bemenu-run\"";
-      binding = "<Super>D";
     };
   };
 
