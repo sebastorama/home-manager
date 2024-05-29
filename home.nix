@@ -26,8 +26,8 @@
     gcc
     lsd
     neovim
-    nodejs_22
     nil
+    nodejs_22
     postgresql
     stdenv
     tldr
@@ -82,6 +82,7 @@
   };
 
   home.sessionPath = [
+    "$HOME/.local/scripts"
     "$HOME/.local/hm-bins/duo"
     "$HOME/.npm-packages/bin"
   ];
@@ -151,6 +152,8 @@
      st = "status";
      ci = "commit";
      co = "checkout";
+     dc = "diff --cached";
+     df = "diff";
      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%ae>%Creset' --abbrev-commit";
    };
    diff-so-fancy = {
@@ -169,28 +172,31 @@
       set -g message-style bg='#222436'
       set -g status-style fg='#624C6F',bg='#222436'
       set -g window-status-current-style fg='#ff0000',bg='#222436'
+      set-window-option -g window-status-current-style fg=red
+      set-option -g status-position top
+
+      # Use v to trigger selection
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      # Use y to yank current selection
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+      bind-key -n C-M-PageUp swap-window -t -1\; select-window -t -1
+      bind-key -n C-M-PageDown swap-window -t +1\; select-window -t +1
+      bind-key -n C-PageUp previous-window
+      bind-key -n C-PageDown next-window
+      bind-key -n M-9 previous-window
+      bind-key -n S-F1 swap-window -t -1\; select-window -t -1
+      bind-key -n M-0 next-window
+      bind-key -n S-F2 swap-window -t +1\; select-window -t +1
+      bind-key -n F3 choose-window
+      bind-key ! break-pane -d -n _hidden_pane
+      bind-key @ join-pane -s $.1
     '';
   };
 
-  dconf.settings = {
-    "org/gnome/mutter" = {
-      workspaces-only-on-primary = false;
-    };
-
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
-
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      custom-keybindings = [
-        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-      ];
-    };
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-      name = "kitty super";
-      command = "kitty -e tmux new-session -As g";
-      binding = "<Super>Return";
-    };
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   fonts.fontconfig.enable = true;
