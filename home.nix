@@ -20,6 +20,7 @@
   # environment.
   home.packages = with pkgs; [
     bemenu
+    btop
     cargo
     foot
     fzf
@@ -28,7 +29,9 @@
     neovim
     nil
     nodejs_22
+    python3
     postgresql
+    ruby
     stdenv
     tldr
     tmux
