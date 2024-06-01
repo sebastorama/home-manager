@@ -140,6 +140,23 @@
       ta = "tmux new-session -As";
       ls = "lsd";
     };
+
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#ff00ff,bold";
+    };
+
+    autocd = true;
+
+    plugins = [{
+      name = "zsh-fzf-history-search";
+      src = pkgs.fetchFromGitHub {
+        owner = "joshskidmore";
+        repo = "zsh-fzf-history-search";
+        rev = "d5a9730b5b4cb0b39959f7f1044f9c52743832ba";
+        sha256 = "tQqIlkgIWPEdomofPlmWNEz/oNFA1qasILk4R5RWobY=";
+      };
+    }];
   };
 
   programs.bash = {
