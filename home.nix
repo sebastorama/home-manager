@@ -22,6 +22,7 @@
     bemenu
     btop
     cargo
+    fd
     foot
     fzf
     gcc
@@ -110,11 +111,15 @@
     BEMENU_BACKEND = "curses";
     EDITOR = "nvim";
     LC_CTYPE = "en_US.UTF-8";
-    XDG_DATA_DIRS="/home/sebastorama/.nix-profile/share:$XDG_DATA_DIRS";
   };
 
   xdg = {
    enable = true;
+   mime.enable = true;
+  };
+
+  programs.vscode = {
+    enable = true;
   };
 
   programs.zsh = {
@@ -135,6 +140,10 @@
       ta = "tmux new-session -As";
       ls = "lsd";
     };
+  };
+
+  programs.bash = {
+    enable = true;
   };
 
   programs.git = {
@@ -202,7 +211,12 @@
     enableZshIntegration = true;
   };
 
-  fonts.fontconfig.enable = true;
+  pam.sessionVariables = config.home.sessionVariables // {
+    LANGUAGE = "en_US:en";
+    LANG = "en_US.UTF-8";
+  };
 
+  fonts.fontconfig.enable = true;
+  targets.genericLinux.enable = true;
   programs.home-manager.enable = true;
 }
