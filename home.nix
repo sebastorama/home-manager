@@ -22,18 +22,23 @@
     bemenu
     btop
     cargo
+    discord
     fd
     foot
     fzf
     gcc
+    google-chrome
+    kitty
     lsd
     neovim
     nil
     nodejs_22
-    python3
+    obsidian
     postgresql
+    python3
     ruby
     stdenv
+    telegram-desktop
     tldr
     tmux
     vim
