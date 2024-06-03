@@ -122,50 +122,10 @@
    mime.enable = true;
   };
 
-  programs.vscode = {
-    enable = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "npm"
-        "history"
-        "node"
-        "rust"
-      ];
-    };
-
-    shellAliases = {
-      ta = "tmux new-session -As";
-      ls = "lsd";
-    };
-
-    autosuggestion = {
-      enable = true;
-      highlight = "fg=#ff00ff,bold";
-    };
-
-    autocd = true;
-
-    plugins = [{
-      name = "zsh-fzf-history-search";
-      src = pkgs.fetchFromGitHub {
-        owner = "joshskidmore";
-        repo = "zsh-fzf-history-search";
-        rev = "d5a9730b5b4cb0b39959f7f1044f9c52743832ba";
-        sha256 = "tQqIlkgIWPEdomofPlmWNEz/oNFA1qasILk4R5RWobY=";
-      };
-    }];
-  };
-
   programs.bash = {
     enable = true;
   };
+
 
   programs.git = {
    enable = true;
@@ -227,9 +187,65 @@
     '';
   };
 
+  programs.vscode = {
+    enable = true;
+  };
+
+  programs.wezterm = {
+    enable = true;
+    extraConfig = ''
+    return {
+      font = wezterm.font("JetBrainsMono Nerd Font"),
+      font_size = 12.0,
+      color_scheme = "Tokyo Night",
+      hide_tab_bar_if_only_one_tab = true,
+      keys = {
+        {key="n", mods="SHIFT|CTRL", action="ToggleFullScreen"},
+      }
+    }
+    '';
+  };
+
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    oh-my-zsh = {
+      enable = true;
+      theme = "robbyrussell";
+      plugins = [
+        "git"
+        "npm"
+        "history"
+        "node"
+        "rust"
+      ];
+    };
+
+    shellAliases = {
+      ta = "tmux new-session -As";
+      ls = "lsd";
+    };
+
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#ff00ff,bold";
+    };
+
+    autocd = true;
+
+    plugins = [{
+      name = "zsh-fzf-history-search";
+      src = pkgs.fetchFromGitHub {
+        owner = "joshskidmore";
+        repo = "zsh-fzf-history-search";
+        rev = "d5a9730b5b4cb0b39959f7f1044f9c52743832ba";
+        sha256 = "tQqIlkgIWPEdomofPlmWNEz/oNFA1qasILk4R5RWobY=";
+      };
+    }];
   };
 
   pam.sessionVariables = config.home.sessionVariables // {
