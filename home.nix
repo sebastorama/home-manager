@@ -30,6 +30,7 @@
     google-chrome
     kitty
     lsd
+    mpv
     neovim
     nil
     nodejs_22
