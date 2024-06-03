@@ -41,6 +41,7 @@
     tldr
     tmux
     vim
+    vlc
     wl-clipboard
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
