@@ -22,7 +22,7 @@
     bemenu
     btop
     cargo
-    discord
+    dropbox
     fd
     foot
     fzf
@@ -38,7 +38,6 @@
     python3
     ruby
     stdenv
-    telegram-desktop
     tldr
     tmux
     vim
