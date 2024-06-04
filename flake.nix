@@ -20,7 +20,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
+        system = system;
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
           inputs.nixgl.overlay

@@ -6,6 +6,10 @@
   home.username = "sebastorama";
   home.homeDirectory = "/home/sebastorama";
 
+  imports = [
+    ./hyprland.nix
+  ];
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -27,7 +31,9 @@
     foot
     fzf
     gcc
+    gcolor3
     google-chrome
+    hyprpicker
     kitty
     lsd
     mpv
@@ -37,8 +43,10 @@
     obsidian
     postgresql
     python3
+    ripgrep
     ruby
     stdenv
+    swaybg
     tldr
     tmux
     vim
@@ -74,6 +82,10 @@
 
     ".config/kitty/kitty.conf" = {
       source = dotfiles/kitty.conf;
+    };
+
+    ".config/wallpapers/" = {
+      source = ./wallpapers;
     };
 
     ".local/hm-bins/duo" = {
@@ -156,6 +168,7 @@
    };
   };
 
+
   programs.tmux = {
     enable = true;
     baseIndex = 1;
@@ -189,16 +202,15 @@
     '';
   };
 
-  programs.vscode = {
-    enable = true;
-  };
+
+  programs.vscode.enable = true;
 
   programs.wezterm = {
     enable = true;
     extraConfig = ''
     return {
       font = wezterm.font("JetBrainsMono Nerd Font"),
-      font_size = 12.0,
+      font_size = 11.0,
       color_scheme = "Tokyo Night",
       hide_tab_bar_if_only_one_tab = true,
       keys = {
@@ -254,6 +266,15 @@
     LANGUAGE = "en_US:en";
     LANG = "en_US.UTF-8";
   };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 48;
+  };
+
+  home.keyboard.variant = "us-mac";
 
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;
