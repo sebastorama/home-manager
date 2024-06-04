@@ -156,7 +156,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/submap"];
-        modules-right = ["sndio" "battery" "bluetooth" "clock" "tray"];
+        modules-right = ["custom/duo" "sndio" "battery" "bluetooth" "clock" "tray"];
 
         "hyprland/workspaces" = {
           format = "{name}";
@@ -166,6 +166,12 @@
           format = "{icon} {capacity}%";
           interval = 1;
           format-icons = ["󰂎"];
+        };
+
+        "custom/duo" = {
+          format = "{}";
+          exec = "display_ck";
+          interval = 1;
         };
 
         clock = {

@@ -36,6 +36,7 @@
     google-chrome
     hyprpicker
     kitty
+    localsend
     lsd
     mpv
     neovim
@@ -71,7 +72,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
   ];
-
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -202,21 +202,6 @@
 
   programs.vscode.enable = true;
 
-  programs.wezterm = {
-    enable = true;
-    extraConfig = ''
-    return {
-      font = wezterm.font("JetBrainsMono Nerd Font"),
-      font_size = 11.0,
-      color_scheme = "Tokyo Night",
-      hide_tab_bar_if_only_one_tab = true,
-      keys = {
-        {key="n", mods="SHIFT|CTRL", action="ToggleFullScreen"},
-      }
-    }
-    '';
-  };
-
   programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
@@ -269,6 +254,18 @@
     package = pkgs.gnome.adwaita-icon-theme;
     name = "Adwaita";
     size = 48;
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
+      name  = "Papirus-Dark";
+    };
+    theme = {
+      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
+      name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    };
   };
 
   home.keyboard.variant = "us-mac";
