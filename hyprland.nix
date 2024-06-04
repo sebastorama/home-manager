@@ -92,6 +92,9 @@
         bind=,escape,submap,reset
       submap=reset
 
+      bind = $mainMod SHIFT, =, exec, brillo -s intel_backlight -q -A 10
+      bind = $mainMod SHIFT, =, exec, brillo -s intel_backlight -q -U 10
+
       # keybinds further down will be global again...
 
       bindm = $mainMod, mouse:272, movewindow
