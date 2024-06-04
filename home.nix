@@ -8,6 +8,7 @@
 
   imports = [
     ./hyprland.nix
+    ./host_duo.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -86,10 +87,6 @@
 
     ".config/wallpapers/" = {
       source = ./wallpapers;
-    };
-
-    ".local/hm-bins/duo" = {
-      source = hosts/duo;
     };
 
     ".npmrc" = {

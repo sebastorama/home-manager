@@ -17,7 +17,8 @@
         "waybar &"
         "dunst &"
         "dropbox &"
-        "find ~/.config/wallpapers/* | xargs swaybg -m fill -i &"
+        "find /home/sebastorama/.config/wallpapers/* | xargs swaybg -m fill -i &"
+        "hyprctl keyword monitor \"eDP-2, disable\""
       ];
     };
 
@@ -41,6 +42,11 @@
         border_size = 1
 
         col.active_border = rgba(bb9af7ff)
+      }
+
+      misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
       }
 
       xwayland {
@@ -92,13 +98,14 @@
         bind=,escape,submap,reset
       submap=reset
 
-      bind = $mainMod SHIFT, =, exec, brillo -s intel_backlight -q -A 10
-      bind = $mainMod SHIFT, =, exec, brillo -s intel_backlight -q -U 10
 
       # keybinds further down will be global again...
 
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
+
+      bind = $mainMod, code:21, exec, brillo -s intel_backlight -q -A 10
+      bind = $mainMod, code:20, exec, brillo -s intel_backlight -q -U 10
 
       bind = $mainMod, h, movefocus, l
       bind = $mainMod, j, movefocus, d
