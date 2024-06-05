@@ -123,7 +123,6 @@
   #  /etc/profiles/per-user/sebastorama/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    BEMENU_BACKEND = "curses";
     EDITOR = "nvim";
     LC_CTYPE = "en_US.UTF-8";
   };
