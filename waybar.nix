@@ -9,7 +9,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/submap"];
-        modules-right = ["custom/duo" "battery" "bluetooth" "clock" "tray"];
+        modules-right = ["power-profiles-daemon" "custom/duo" "battery" "bluetooth" "clock" "tray"];
 
         "hyprland/workspaces" = {
           format = "{name}";
@@ -19,6 +19,10 @@
           format = "{icon} {capacity}%";
           interval = 1;
           format-icons = ["󰂎"];
+        };
+
+        tray = {
+          spacing = 10;
         };
 
         "custom/duo" = {
@@ -55,7 +59,7 @@
         border: none;
         border-radius: 0;
         font-family: JetBrainsMono Nerd Font;
-        background-color: rgba(34, 36, 54, 0.1);
+        background-color: rgba(34, 36, 54, 0.8);
       }
 
       tooltip {

@@ -43,6 +43,7 @@
     nil
     nodejs_22
     obsidian
+    pavucontrol
     postgresql
     python3
     ripgrep
@@ -225,10 +226,12 @@
       ls = "lsd";
     };
 
-    autosuggestion = {
-      enable = true;
-      highlight = "fg=#ff00ff,bold";
-    };
+    # autosuggestion = {
+    #   enable = true;
+    #   highlight = "fg=#ff00ff,bold";
+    # };
+
+    history.ignoreAllDups = true;
 
     autocd = true;
 
@@ -252,7 +255,7 @@
     gtk.enable = true;
     package = pkgs.gnome.adwaita-icon-theme;
     name = "Adwaita";
-    size = 48;
+    size = 24;
   };
 
   gtk = {

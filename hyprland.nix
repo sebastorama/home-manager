@@ -47,6 +47,7 @@
       misc {
         disable_hyprland_logo = true
         disable_splash_rendering = true
+        vfr = true
       }
 
       xwayland {
@@ -60,16 +61,16 @@
 
       decoration {
         rounding = 5
-
-        drop_shadow = true
-        shadow_range = 5
-        shadow_render_power = 3
+        drop_shadow = false
+        blur {
+          enabled = false
+        }
       }
 
       animations {
-        enabled = true
-        animation = windows, 1, 1, default
-        animation = workspaces, 1, 1, default
+        enabled = false
+        # animation = windows, 1, 1, default
+        # animation = workspaces, 1, 1, default
       }
 
       input {
@@ -79,6 +80,11 @@
         repeat_delay = 250
         repeat_rate = 40
       }
+
+      workspace = 11,monitor:eDP-2
+      workspace = 12,monitor:eDP-2
+      workspace = 13,monitor:eDP-2
+      workspace = 14,monitor:eDP-2
 
       windowrulev2=float,class:^(org.telegram.desktop|telegramdesktop)$,title:^(Media viewer)$
 
@@ -128,6 +134,16 @@
       bind = $mainMod, 9, workspace, 9
       bind = $mainMod, 1, workspace, 1
 
+      bind = $mainMod CTRL, 1, workspace, 11
+      bind = $mainMod CTRL, 2, workspace, 12
+      bind = $mainMod CTRL, 3, workspace, 13
+      bind = $mainMod CTRL, 4, workspace, 14
+
+      bind = $mainMod CTRL SHIFT, 1, movetoworkspace, 11
+      bind = $mainMod CTRL SHIFT, 2, movetoworkspace, 12
+      bind = $mainMod CTRL SHIFT, 3, movetoworkspace, 13
+      bind = $mainMod CTRL SHIFT, 4, movetoworkspace, 14
+
       bind = $mainMod SHIFT, 1, movetoworkspace, 1
       bind = $mainMod SHIFT, 2, movetoworkspace, 2
       bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -138,10 +154,10 @@
       bind = $mainMod SHIFT, 8, movetoworkspace, 8
       bind = $mainMod SHIFT, 9, movetoworkspace, 9
 
-      windowrulev2 = opacity 0.8,class:^(kitty)$
+      windowrulev2 = opacity 0.9,class:^(kitty)$
       windowrule = size 80% 80%,class:^(kittyf)$
       windowrulev2 = float,class:^(kittyf)$
-      windowrulev2 = opacity 0.8,class:^(kittyf)$
+      windowrulev2 = opacity 0.9,class:^(kittyf)$
       windowrulev2 = xray on,class:^(kittyf)$
       layerrule = blur,waybar
     '';
