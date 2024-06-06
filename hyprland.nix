@@ -39,8 +39,8 @@
       bind = $mainMod SHIFT, Return, exec, kitty --class kittyf --title kitty tmux new-session -As gen
 
       general {
-        gaps_in = 3
-        gaps_out = 3
+        gaps_in = 2
+        gaps_out = 2
         border_size = 1
 
         col.active_border = rgba(bb9af7ff)
@@ -136,9 +136,13 @@
       bind = $mainMod, code:20, exec, brillo -s intel_backlight -q -U 10
 
       bind = $mainMod, h, movefocus, l
+      bind = $mainMod, h, bringactivetotop,
       bind = $mainMod, j, movefocus, d
+      bind = $mainMod, j, bringactivetotop,
       bind = $mainMod, k, movefocus, u
+      bind = $mainMod, k, bringactivetotop,
       bind = $mainMod, l, movefocus, r
+      bind = $mainMod, l, bringactivetotop,
 
       bind = $mainMod SHIFT, h, movewindow, l
       bind = $mainMod SHIFT, j, movewindow, d
