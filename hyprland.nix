@@ -11,6 +11,7 @@
 
     settings = {
       exec-once = [
+        "pypr"
         "swww init &"
         "nm-applet --indicator &"
         "blueman-applet"
@@ -33,6 +34,7 @@
       bind = $mainMod, B, exec, firefox
       bind = $mainMod, F, fullscreen
       bind = $mainMod, V, togglefloating
+      bind = $mainMod, E, exec, pypr expose
 
       bind = $mainMod SHIFT, Return, exec, kitty --class kittyf --title kitty tmux new-session -As gen
 
@@ -81,10 +83,23 @@
         repeat_rate = 40
       }
 
+      workspace = 1,monitor:eDP-1
+      workspace = 2,monitor:eDP-1
+      workspace = 3,monitor:eDP-1
+      workspace = 4,monitor:eDP-1
+      workspace = 5,monitor:eDP-1
+      workspace = 6,monitor:eDP-1
+      workspace = 7,monitor:eDP-1
+      workspace = 8,monitor:eDP-1
+      workspace = 9,monitor:eDP-1
+      workspace = 10,monitor:eDP-1
+
       workspace = 11,monitor:eDP-2
       workspace = 12,monitor:eDP-2
       workspace = 13,monitor:eDP-2
       workspace = 14,monitor:eDP-2
+
+      workspace = special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false
 
       windowrulev2=float,class:^(org.telegram.desktop|telegramdesktop)$,title:^(Media viewer)$
 
@@ -101,6 +116,13 @@
         binde=ALT,k,resizeactive,0 -10
         binde=ALT,j,resizeactive,0 10
 
+        bind=,escape,submap,reset
+      submap=reset
+
+      bind=$mainMod,T,submap,monitormove
+      submap=monitormove
+        binde=,k,movecurrentworkspacetomonitor,t
+        binde=,j,movecurrentworkspacetomonitor,b
         bind=,escape,submap,reset
       submap=reset
 

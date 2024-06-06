@@ -90,6 +90,10 @@
       source = ./wallpapers;
     };
 
+    ".config/hypr/pyprland.toml" = {
+      source = dotfiles/pyprland.toml;
+    };
+
     ".npmrc" = {
       source = dotfiles/npmrc;
     };

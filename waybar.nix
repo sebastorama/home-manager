@@ -25,6 +25,16 @@
           spacing = 10;
         };
 
+        power-profiles-daemon = {
+          format = "{icon}  {profile}";
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
+          };
+        };
+
         "custom/duo" = {
           format = "{} ";
           exec = "echo $(/home/sebastorama/.local/hm-bins/duo/display_ck)";
@@ -82,6 +92,22 @@
       #workspaces button {
         padding: 0rem;
         color: #c0caf5;
+      }
+
+      #power-profiles-daemon {
+        margin-right: 1rem;
+      }
+
+      #power-profiles-daemon.power-saver {
+        color: #9ece6a;
+      }
+
+      #power-profiles-daemon.balanced {
+        color: #e0af68;
+      }
+
+      #power-profiles-daemon.performance {
+        color: #bb9af7;
       }
 
       #workspaces button.active {
