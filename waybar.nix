@@ -9,7 +9,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/submap"];
-        modules-right = ["power-profiles-daemon" "custom/duo" "battery" "bluetooth" "clock" "tray"];
+        modules-right = ["wireplumber" "power-profiles-daemon" "custom/duo" "battery" "bluetooth" "clock" "tray"];
 
         "hyprland/workspaces" = {
           format = "{name}";
@@ -23,6 +23,13 @@
 
         tray = {
           spacing = 10;
+        };
+
+        wireplumber = {
+          format = "{volume}% {icon}";
+          format-muted = "";
+          on-click = "pavucontrol";
+          format-icons = ["" "" ""];
         };
 
         power-profiles-daemon = {
@@ -92,6 +99,10 @@
       #workspaces button {
         padding: 0rem;
         color: #c0caf5;
+      }
+
+      #wireplumber {
+        margin-right: 1.5rem;
       }
 
       #power-profiles-daemon {
