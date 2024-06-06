@@ -6,11 +6,6 @@
   home.username = "sebastorama";
   home.homeDirectory = "/home/sebastorama";
 
-  imports = [
-    ./hyprland.nix
-    ./host_duo.nix
-  ];
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -34,7 +29,7 @@
     gcc
     gcolor3
     google-chrome
-    hyprpicker
+    jetbrains.datagrip
     kitty
     localsend
     lsd
@@ -42,6 +37,7 @@
     neovim
     nil
     nodejs_22
+    normcap
     obsidian
     pavucontrol
     postgresql
@@ -249,25 +245,6 @@
   pam.sessionVariables = config.home.sessionVariables // {
     LANGUAGE = "en_US:en";
     LANG = "en_US.UTF-8";
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
-    size = 24;
-  };
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
-      name  = "Papirus-Dark";
-    };
-    theme = {
-      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
-      name = "Catppuccin-Mocha-Standard-Peach-Dark";
-    };
   };
 
   home.keyboard.variant = "us-mac";
