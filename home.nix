@@ -56,9 +56,6 @@
     vlc
     wl-clipboard
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -164,11 +161,11 @@
      df = "diff";
      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%ae>%Creset' --abbrev-commit";
    };
+
    diff-so-fancy = {
      enable = true;
    };
   };
-
 
   programs.tmux = {
     enable = true;
@@ -203,7 +200,6 @@
     '';
   };
 
-
   programs.vscode.enable = true;
 
   programs.zoxide = {
@@ -230,10 +226,10 @@
       ls = "lsd";
     };
 
-    # autosuggestion = {
-    #   enable = true;
-    #   highlight = "fg=#ff00ff,bold";
-    # };
+    autosuggestion = {
+      enable = true;
+      highlight = "fg=#ff00ff,bold";
+    };
 
     history.ignoreAllDups = true;
 
