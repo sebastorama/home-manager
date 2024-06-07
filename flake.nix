@@ -8,9 +8,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
-    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -23,7 +20,6 @@
         system = system;
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
-          inputs.nixgl.overlay
         ];
       };
     in {
