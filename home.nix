@@ -30,6 +30,7 @@
     gcolor3
     google-chrome
     jetbrains.datagrip
+    jq
     kitty
     localsend
     lsd
