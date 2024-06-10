@@ -9,7 +9,7 @@
         height = 20;
         modules-left = ["hyprland/workspaces"];
         modules-center = ["hyprland/submap"];
-        modules-right = ["wireplumber" "power-profiles-daemon" "custom/duo" "battery" "bluetooth" "clock" "tray"];
+        modules-right = ["wireplumber" "power-profiles-daemon" "custom/duo" "battery" "clock" "tray"];
 
         "hyprland/workspaces" = {
           format = "{name}";

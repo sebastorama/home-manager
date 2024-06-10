@@ -11,9 +11,11 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
+
+    hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
-  outputs = {  nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, hyprswitch, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -25,6 +27,8 @@
     in {
       homeConfigurations."sebastorama" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+
+        extraSpecialArgs = inputs;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
