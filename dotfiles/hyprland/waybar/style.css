@@ -88,10 +88,22 @@ tooltip {
   border-top: 2px solid rgba(0, 0, 0, 0);
 }
 
+#workspaces button.visible {
+  font-weight: 700;
+  color: #e0af68;
+  border-top: 2px solid #e0af68;
+}
+
 #workspaces button.active {
   font-weight: 700;
   color: #bb9af7;
   border-top: 2px solid #bb9af7;
+}
+
+#workspaces button.urgent {
+  font-weight: 700;
+  color: #f7768e;
+  border-top: 2px solid #f7768e;
 }
 
 #custom-duo, #wireplumber, #power-profiles-daemon, #battery, #bluetooth, #clock, #tray {

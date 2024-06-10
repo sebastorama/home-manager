@@ -35,6 +35,7 @@
     gcc
     gcolor3
     google-chrome
+    grim
     jetbrains.datagrip
     jq
     kitty
