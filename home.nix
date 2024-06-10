@@ -37,6 +37,7 @@
     google-chrome
     grim
     jetbrains.datagrip
+    (writeScriptBin "sdatagrip" (builtins.readFile ./hosts/duo/scripts/sdatagrip))
     jq
     kitty
     localsend
@@ -60,7 +61,7 @@
     vim
     vlc
     wl-clipboard
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "IntelOneMono" ]; })
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
