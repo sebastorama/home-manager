@@ -48,6 +48,7 @@
           return-type = "text";
           restart-interval = 1;
           interval = 1;
+          on-click = "echo \"top\nboth\nbottom\" | fuzzel -d | xargs -I {} /home/sebastorama/.local/hm-bins/duo/display_toggle {}";
         };
 
         clock = {
@@ -121,9 +122,21 @@
         color: #bb9af7;
       }
 
-      #workspaces button.active {
+      #tray {
+        padding-right: 1.5rem;
+      }
+
+      #tray menu menuitem:hover {
+        background-color: #333333;
+      }
+
+      #workspaces button {
         padding: 0 0.2rem;
         margin: 0 0.1rem;
+        border-top: 2px solid rgba(0, 0, 0, 0);
+      }
+
+      #workspaces button.active {
         font-weight: 700;
         color: #bb9af7;
         border-top: 2px solid #bb9af7;

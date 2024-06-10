@@ -29,7 +29,7 @@
       $mainMod = SUPER
 
       bind = $mainMod, Return, exec, kitty
-      bind = $mainMod, D, exec, rofi -show combi
+      bind = $mainMod, D, exec, QT_SCALE_FACTOR=1 fuzzel
       bind = $mainMod, Q, killactive
       bind = $mainMod, B, exec, firefox
       bind = $mainMod, F, fullscreen
@@ -39,8 +39,8 @@
       bind = $mainMod SHIFT, Return, exec, kitty --class kittyf --title kitty tmux new-session -As gen
 
       general {
-        gaps_in = 2
-        gaps_out = 2
+        gaps_in = 8
+        gaps_out = 15
         border_size = 1
 
         col.active_border = rgba(bb9af7ff)
@@ -58,21 +58,23 @@
 
       monitor=,highres,auto,2
 
-      env = GDK_SCALE, 2
-      env = XCURSOR_SIZE, 32
+      env = GDK_SCALE,2
+      env = XCURSOR_SIZE,24
+      env = QT_QPA_PLATFORM,wayland;xcb
+      env = QT_SCALE_FACTOR,1
 
       decoration {
         rounding = 5
-        drop_shadow = false
+        drop_shadow = true
         blur {
-          enabled = false
+          enabled = true
         }
       }
 
       animations {
-        enabled = false
-        # animation = windows, 1, 1, default
-        # animation = workspaces, 1, 1, default
+        enabled = true
+        animation = windows, 1, 1, default
+        animation = workspaces, 1, 1, default
       }
 
       input {
@@ -83,21 +85,20 @@
         repeat_rate = 40
       }
 
-      workspace = 1,monitor:eDP-1
-      workspace = 2,monitor:eDP-1
-      workspace = 3,monitor:eDP-1
-      workspace = 4,monitor:eDP-1
-      workspace = 5,monitor:eDP-1
-      workspace = 6,monitor:eDP-1
-      workspace = 7,monitor:eDP-1
-      workspace = 8,monitor:eDP-1
-      workspace = 9,monitor:eDP-1
-      workspace = 10,monitor:eDP-1
-
-      workspace = 11,monitor:eDP-2
-      workspace = 12,monitor:eDP-2
-      workspace = 13,monitor:eDP-2
-      workspace = 14,monitor:eDP-2
+      workspace = 1
+      workspace = 2
+      workspace = 3
+      workspace = 4
+      workspace = 5
+      workspace = 6
+      workspace = 7
+      workspace = 8
+      workspace = 9
+      workspace = 10
+      workspace = 11
+      workspace = 12
+      workspace = 13
+      workspace = 14
 
       workspace = special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false
 
@@ -189,5 +190,28 @@
     '';
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
+      name  = "Papirus-Dark";
+    };
+    theme = {
+      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
+      name = "Catppuccin-Mocha-Standard-Peach-Dark";
+    };
+  };
+
+
   imports = [ ./waybar.nix ];
+
+  services.blueman-applet.enable = true;
+  services.dunst.enable = true;
 }

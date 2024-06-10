@@ -16,19 +16,27 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
   nixpkgs.config.allowUnfree = true;
 
+  imports = [
+    ./hyprland.nix
+    ./host_duo.nix
+  ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
   home.packages = with pkgs; [
     bemenu
     btop
     cargo
     dropbox
+    dunst
     fd
     foot
     fzf
     gcc
     gcolor3
     google-chrome
+    gnome.nautilus
     jetbrains.datagrip
     jq
     kitty
@@ -37,6 +45,7 @@
     mpv
     neovim
     nil
+    networkmanagerapplet
     nodejs_22
     normcap
     obsidian
@@ -135,6 +144,19 @@
     enable = true;
   };
 
+  programs.fuzzel = {
+    enable = true;
+
+    settings.colors = {
+      background="1e1e2edd";
+      text = "cdd6f4ff";
+      match = "f38ba8ff";
+      selection = "585b70ff";
+      selection-match = "f38ba8ff";
+      selection-text = "cdd6f4ff";
+      border = "b4befeff";
+    };
+  };
 
   programs.git = {
    enable = true;
