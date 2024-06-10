@@ -31,12 +31,10 @@
     dropbox
     dunst
     fd
-    foot
     fzf
     gcc
     gcolor3
     google-chrome
-    gnome.nautilus
     jetbrains.datagrip
     jq
     kitty
@@ -144,6 +142,10 @@
     enable = true;
   };
 
+  programs.foot = {
+    enable = true;
+  };
+
   programs.fuzzel = {
     enable = true;
 
@@ -188,6 +190,7 @@
 
   programs.tmux = {
     enable = true;
+    catppuccin.enable = false;
     baseIndex = 1;
     disableConfirmationPrompt = true;
     mouse = true;
@@ -271,6 +274,8 @@
   };
 
   home.keyboard.variant = "us-mac";
+
+  catppuccin.enable = true;
 
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;

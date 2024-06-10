@@ -1,0 +1,78 @@
+[
+  {
+    "battery": {
+      "format": "{icon} {capacity}%",
+      "format-icons": [
+        "󰂎"
+      ],
+      "interval": 1
+    },
+    "clock": {
+      "calendar": {
+        "format": {
+          "days": "<span color='#ecc6d9'><b>{}</b></span>",
+          "months": "<span color='#ffead3'><b>{}</b></span>",
+          "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+          "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+          "weeks": "<span color='#99ffdd'><b>W{}</b></span>"
+        },
+        "mode": "year",
+        "mode-mon-col": 3,
+        "on-scroll": 1,
+        "weeks-pos": "right"
+      },
+      "format": "󰚭 {:%H:%M}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+    "custom/duo": {
+      "exec": "echo $(/home/sebastorama/.local/hm-bins/duo/display_ck)",
+      "format": "{} ",
+      "interval": 1,
+      "on-click": "echo \"top\nboth\nbottom\" | fuzzel -d | xargs -I {} /home/sebastorama/.local/hm-bins/duo/display_toggle {}",
+      "restart-interval": 1,
+      "return-type": "text"
+    },
+    "height": 20,
+    "hyprland/workspaces": {
+      "format": "{name}"
+    },
+    "layer": "top",
+    "modules-center": [
+      "hyprland/submap"
+    ],
+    "modules-left": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "wireplumber",
+      "power-profiles-daemon",
+      "custom/duo",
+      "battery",
+      "clock",
+      "tray"
+    ],
+    "position": "top",
+    "power-profiles-daemon": {
+      "format": "{icon}  {profile}",
+      "format-icons": {
+        "balanced": "",
+        "default": "",
+        "performance": "",
+        "power-saver": ""
+      }
+    },
+    "tray": {
+      "spacing": 10
+    },
+    "wireplumber": {
+      "format": "{volume}% {icon}",
+      "format-icons": [
+        "",
+        "",
+        ""
+      ],
+      "format-muted": "",
+      "on-click": "pavucontrol"
+    }
+  }
+]

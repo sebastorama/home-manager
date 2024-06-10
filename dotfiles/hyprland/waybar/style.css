@@ -1,0 +1,101 @@
+* {
+  margin-top: 2px;
+  border: none;
+  border-radius: 0;
+  font-family: JetBrainsMono Nerd Font;
+  background-color: rgba(34, 36, 54, 0);
+}
+
+tooltip {
+  background-color: #1a1b26;
+}
+
+#submap.resize {
+  color: #ffcc66;
+  font-weight: 700;
+}
+
+#battery.charging {
+  color: #9ece6a;
+}
+
+#battery.discharging {
+  color: #c0caf5;
+}
+
+#workspaces {
+  background-color: #1a1b26;
+  border-radius: 0.5rem;
+  padding: 0 0.4rem;
+}
+
+#workspaces button {
+  padding: 0rem;
+  font-size: 1.0rem;
+
+  color: #c0caf5;
+}
+
+#wireplumber {
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  padding-right: 1.5rem;
+}
+
+#power-profiles-daemon {
+  padding-right: 1rem;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #9ece6a;
+}
+
+#power-profiles-daemon.balanced {
+  color: #e0af68;
+}
+
+#power-profiles-daemon.performance {
+  color: #bb9af7;
+}
+
+#tray {
+  margin-right: 1.0rem;
+  padding-right: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+#tray menu {
+  background-color: #1a1b26;
+}
+
+#tray menu input {
+  color: #c0caf5;
+}
+
+#tray menu menuitem:hover {
+  background-color: #333333;
+}
+
+#workspaces {
+  margin-left: 1.0rem;
+  background-color: rgba(34, 36, 54, 0.8);
+}
+
+#workspaces button {
+  padding: 0 0.2rem;
+  margin: 0 0.1rem;
+  border-top: 2px solid rgba(0, 0, 0, 0);
+}
+
+#workspaces button.active {
+  font-weight: 700;
+  color: #bb9af7;
+  border-top: 2px solid #bb9af7;
+}
+
+#custom-duo, #wireplumber, #power-profiles-daemon, #battery, #bluetooth, #clock, #tray {
+  padding-left: 1.3rem;
+  color: #c0caf5;
+  background-color: rgba(34, 36, 54, 0.8);
+}

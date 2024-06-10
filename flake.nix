@@ -11,11 +11,11 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-
+    catppuccin.url = "github:catppuccin/nix";
     hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
-  outputs = { nixpkgs, home-manager, hyprswitch, ... }@inputs:
+  outputs = { nixpkgs, catppuccin, home-manager, hyprswitch, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -32,7 +32,10 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

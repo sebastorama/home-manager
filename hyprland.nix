@@ -3,7 +3,9 @@
 {
 
   home.file = {
-    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "/home/sebastorama/.config/home-manager/dotfiles/hyprland.conf";
+    ".config/hypr/hyprland.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/home-manager/dotfiles/hyprland/hyprland.conf";
+    ".config/waybar/config".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/home-manager/dotfiles/hyprland/waybar/config";
+    ".config/waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/home-manager/dotfiles/hyprland/waybar/style.css";
   };
 
   home.pointerCursor = {
@@ -15,13 +17,19 @@
 
   home.packages = [
     hyprswitch.packages."x86_64-linux".default
+    pkgs.waybar
+    pkgs.hypridle
+    pkgs.lxqt.lxqt-qtplugin
+    pkgs.libsForQt5.qtstyleplugin-kvantum
   ];
 
   programs.hyprlock = {
     enable = true;
     settings = {
       background = [{
+        path = "screenshot";
         color = "rgba(0, 0, 0, 1.0)";
+        blur_passes = 3;
       }];
 
       input-field = [
@@ -35,7 +43,7 @@
           inner_color = "rgb(91, 96, 120)";
           outer_color = "rgb(24, 25, 38)";
           outline_thickness = 5;
-          shadow_passes = 2;
+          shadow_passes = 3;
         }
       ];
 
@@ -44,18 +52,24 @@
 
   gtk = {
     enable = true;
-    iconTheme = {
-      package = (pkgs.catppuccin-papirus-folders.override { flavor = "mocha"; accent = "peach"; });
-      name  = "Papirus-Dark";
-    };
-    theme = {
-      package = (pkgs.catppuccin-gtk.override { accents = [ "peach" ]; size = "standard"; variant = "mocha"; });
-      name = "Catppuccin-Mocha-Standard-Peach-Dark";
-    };
+    catppuccin.enable = true;
   };
 
-  imports = [ ./waybar.nix ];
+  qt = {
+    style.catppuccin.enable = true;
+  };
 
   services.blueman-applet.enable = true;
   services.dunst.enable = true;
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        ignore_dbus_inhibit = false;
+        before_sleep_cmd = "hyprlock";
+        lock_cmd = "hyprlock";
+      };
+    };
+  };
 }
