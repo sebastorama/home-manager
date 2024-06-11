@@ -17,7 +17,6 @@
   nixpkgs.config.allowUnfree = true;
 
   imports = [
-    ./hyprland.nix
     ./host_duo.nix
   ];
 
@@ -29,7 +28,6 @@
     btop
     cargo
     dropbox
-    dunst
     fd
     fzf
     gcc
@@ -37,9 +35,9 @@
     google-chrome
     grim
     jetbrains.datagrip
-    (writeScriptBin "sdatagrip" (builtins.readFile ./hosts/duo/scripts/sdatagrip))
     jq
     kitty
+    kdePackages.kcolorpicker
     localsend
     lsd
     mpv
@@ -136,8 +134,16 @@
   };
 
   xdg = {
-   enable = true;
-   mime.enable = true;
+    enable = true;
+    mime.enable = true;
+    mimeApps.enable = true;
+    mimeApps.defaultApplications = {
+      "text/html" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "x-scheme-handler/about" = "firefox.desktop";
+      "x-scheme-handler/unknown" = "firefox.desktop";
+    };
   };
 
   programs.bash = {
@@ -146,20 +152,6 @@
 
   programs.foot = {
     enable = true;
-  };
-
-  programs.fuzzel = {
-    enable = true;
-
-    settings.colors = {
-      background="1e1e2edd";
-      text = "cdd6f4ff";
-      match = "f38ba8ff";
-      selection = "585b70ff";
-      selection-match = "f38ba8ff";
-      selection-text = "cdd6f4ff";
-      border = "b4befeff";
-    };
   };
 
   programs.git = {
@@ -272,6 +264,14 @@
   pam.sessionVariables = config.home.sessionVariables // {
     LANGUAGE = "en_US:en";
     LANG = "en_US.UTF-8";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Breeze-Dark";
+      package = pkgs.libsForQt5.breeze-gtk;
+    };
   };
 
   home.keyboard.variant = "us-mac";
