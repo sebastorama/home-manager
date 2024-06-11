@@ -96,8 +96,8 @@ tooltip {
 
 #workspaces button.active {
   font-weight: 700;
-  color: #bb9af7;
-  border-top: 2px solid #bb9af7;
+  color: #dddddd;
+  border-top: 2px solid #dddddd;
 }
 
 #workspaces button.urgent {
