@@ -192,7 +192,6 @@
 
   programs.tmux = {
     enable = true;
-    catppuccin.enable = false;
     baseIndex = 1;
     disableConfirmationPrompt = true;
     mouse = true;
@@ -276,8 +275,6 @@
   };
 
   home.keyboard.variant = "us-mac";
-
-  catppuccin.enable = true;
 
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;

@@ -21,6 +21,7 @@
     pkgs.hypridle
     pkgs.lxqt.lxqt-qtplugin
     pkgs.libsForQt5.qtstyleplugin-kvantum
+    pkgs.papirus-icon-theme
   ];
 
   programs.hyprlock = {
@@ -52,12 +53,21 @@
 
   gtk = {
     enable = true;
-    catppuccin.enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
+    };
   };
 
   qt = {
-    style.catppuccin.enable = true;
+    enable = true;
+    platformTheme.name = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
   };
+
 
   services.blueman-applet.enable = true;
   services.dunst.enable = true;

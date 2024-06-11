@@ -34,7 +34,6 @@
         # the path to your home.nix.
         modules = [
           ./home.nix
-          catppuccin.homeManagerModules.catppuccin
         ];
 
         # Optionally use extraSpecialArgs
