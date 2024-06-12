@@ -24,11 +24,14 @@
   # environment.
 
   home.packages = with pkgs; [
+    bc
     bemenu
     btop
     cargo
+    corefonts
     dropbox
     fd
+    freerdp3
     fzf
     gcc
     gcolor3
@@ -36,14 +39,14 @@
     grim
     jetbrains.datagrip
     jq
-    kitty
     kdePackages.kcolorpicker
+    kitty
     localsend
     lsd
     mpv
     neovim
-    nil
     networkmanagerapplet
+    nil
     nodejs_22
     normcap
     obsidian
@@ -57,6 +60,7 @@
     tldr
     tmux
     vim
+    vistafonts
     vlc
     wl-clipboard
     (nerdfonts.override { fonts = [ "JetBrainsMono" "IntelOneMono" ]; })
@@ -190,9 +194,9 @@
     newSession = true;
     keyMode = "vi";
     extraConfig = ''
-      set -g message-style bg='#222436'
-      set -g status-style fg='#624C6F',bg='#222436'
-      set -g window-status-current-style fg='#ff0000',bg='#222436'
+      set -g message-style bg='#0F1013'
+      set -g status-style fg='#624C6F',bg='#0F1013'
+      set -g window-status-current-style fg='#ff0000',bg='#0F1013'
       set-window-option -g window-status-current-style fg=red
       set-option -g status-position top
 
