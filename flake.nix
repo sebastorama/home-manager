@@ -11,11 +11,9 @@
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
-    catppuccin.url = "github:catppuccin/nix";
-    hyprswitch.url = "github:h3rmt/hyprswitch/release";
   };
 
-  outputs = { nixpkgs, catppuccin, home-manager, hyprswitch, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
