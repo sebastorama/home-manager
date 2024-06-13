@@ -194,9 +194,9 @@
     newSession = true;
     keyMode = "vi";
     extraConfig = ''
-      set -g message-style bg='#0F1013'
-      set -g status-style fg='#624C6F',bg='#0F1013'
-      set -g window-status-current-style fg='#ff0000',bg='#0F1013'
+      set -g message-style bg='#222436'
+      set -g status-style fg='#624C6F',bg='#222436'
+      set -g window-status-current-style fg='#ff0000',bg='#222436'
       set-window-option -g window-status-current-style fg=red
       set-option -g status-position top
 
