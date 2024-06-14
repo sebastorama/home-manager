@@ -51,6 +51,7 @@
     normcap
     obsidian
     pavucontrol
+    pipx
     postgresql
     python3
     ripgrep
@@ -111,6 +112,7 @@
   };
 
   home.sessionPath = [
+    "$HOME/.local/bin"
     "$HOME/.local/scripts"
     "$HOME/.local/hm-bins/duo"
     "$HOME/.npm-packages/bin"
