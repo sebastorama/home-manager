@@ -249,7 +249,7 @@
 
     autosuggestion = {
       enable = true;
-      highlight = "fg=#ff00ff,bold";
+      highlight = "fg=#666666,bold";
     };
 
     history.ignoreAllDups = true;
