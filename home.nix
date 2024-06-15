@@ -25,7 +25,6 @@
 
   home.packages = with pkgs; [
     bc
-    bemenu
     btop
     cargo
     corefonts
@@ -39,18 +38,14 @@
     grim
     jetbrains.datagrip
     jq
-    kdePackages.kcolorpicker
-    kitty
     localsend
     lsd
     mpv
     neovim
-    networkmanagerapplet
     nil
     nodejs_22
     normcap
     obsidian
-    pavucontrol
     pipx
     postgresql
     python3
@@ -150,14 +145,6 @@
       "x-scheme-handler/about" = "firefox.desktop";
       "x-scheme-handler/unknown" = "firefox.desktop";
     };
-  };
-
-  programs.bash = {
-    enable = true;
-  };
-
-  programs.foot = {
-    enable = true;
   };
 
   programs.git = {
