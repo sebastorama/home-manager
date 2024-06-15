@@ -202,6 +202,10 @@
       set-window-option -g window-status-current-style fg=red
       set-option -g status-position top
 
+      set -g default-terminal 'tmux-256color'
+      set -as terminal-overrides ',*:Smulx=\E[4::%p1%dm'  # undercurl support
+      set -as terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'  # underscore colours - needs tmux-3.0
+
       # Use v to trigger selection
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       # Use y to yank current selection
