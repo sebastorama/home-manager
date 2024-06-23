@@ -28,6 +28,7 @@
     btop
     cargo
     corefonts
+    delta
     dropbox
     fd
     freerdp3
@@ -170,8 +171,23 @@
      lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%ae>%Creset' --abbrev-commit";
    };
 
-   diff-so-fancy = {
+   delta = {
      enable = true;
+     options = {
+       minus-style                   = "syntax #3a273a";
+       minus-non-emph-style          = "syntax #3a273a";
+       minus-emph-style              = "syntax #6b2e43";
+       minus-empty-line-marker-style = "syntax #3a273a";
+       line-numbers-minus-style      = "#b55a67";
+       plus-style                    = "syntax #273849";
+       plus-non-emph-style           = "syntax #273849";
+       plus-emph-style               = "syntax #305f6f";
+       plus-empty-line-marker-style  = "syntax #273849";
+       line-numbers-plus-style       = "#627259";
+       line-numbers-zero-style       = "#3b4261";
+
+       features = "decorations";
+     };
    };
   };
 
