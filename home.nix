@@ -134,6 +134,13 @@
     LC_CTYPE = "en_US.UTF-8";
   };
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+  };
+
   xdg = {
     enable = true;
     mime.enable = true;
@@ -261,14 +268,6 @@
   pam.sessionVariables = config.home.sessionVariables // {
     LANGUAGE = "en_US:en";
     LANG = "en_US.UTF-8";
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Breeze-Dark";
-      package = pkgs.libsForQt5.breeze-gtk;
-    };
   };
 
   home.keyboard.variant = "us-mac";
