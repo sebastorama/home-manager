@@ -83,21 +83,12 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-    ".config/kitty/kitty.conf" = {
-      source = dotfiles/kitty.conf;
-    };
+    ".config/kitty/kitty.conf".source =
+      config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/home-manager/dotfiles/kitty.conf";
 
-    ".config/wallpapers/" = {
-      source = ./wallpapers;
-    };
-
-    ".config/hypr/pyprland.toml" = {
-      source = dotfiles/pyprland.toml;
-    };
-
-    ".npmrc" = {
-      source = dotfiles/npmrc;
-    };
+    ".config/wallpapers/".source = ./wallpapers;
+    ".config/hypr/pyprland.toml".source = dotfiles/pyprland.toml;
+    ".npmrc".source = dotfiles/npmrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
